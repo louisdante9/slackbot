@@ -3,10 +3,6 @@ exports.question_one = {
 		"type": "plain_text",
 		"text": "slackbot"
 	},
-	"submit": {
-		"type": "plain_text",
-		"text": "Submit"
-	},
     "callback_id": "question1",
 	"blocks": [
 		{

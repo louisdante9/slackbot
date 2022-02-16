@@ -1,7 +1,7 @@
 const Express = require('express')
 const bodyParser = require('body-parser')
 const { question_one, question_two } = require('./attachment')
-const {openModal, sendMessage} = require('./slack')
+const {openModal, sendMessage, updateModal} = require('./slack')
 
 const app = new Express()
 app.use(bodyParser.urlencoded({extended: true}))
@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 const port = process.env.PORT || 8080
 
 app.post('/bot', (req, res) => {
-    console.log(req.body, 'hello there')
     const triggerId = req.body.trigger_id
     
     if (req.body.text.toLowerCase() === 'hello') {
@@ -23,17 +22,27 @@ app.post('/bot', (req, res) => {
 app.post('/action', (req, res) => {
     const payload = JSON.parse(req.body.payload)
     const triggerId = payload.trigger_id;
-    const {callback_id, state} = payload.view
+    const { id: userId } = payload.user
+    const {callback_id, state, id, hash} = payload.view
+    console.log(payload.type, 'type');
+    // res.status(200).send()
     if (callback_id === 'question1') {
         const keys = Object.keys(state.values)
         const option = state.values[keys]['static_select-action'].selected_option.text.text
-        console.log(option, 'option')
         //save to db
-        openModal(triggerId, question_two)
-        return res.send({text: 'What are your favorite hobbies'})
+        res.status(200).send()
+         updateModal(id, question_two, hash)
+         return 
+        // return res.send({text: 'What are your favorite hobbies'})
     }
-    // return res.send({text: 'invalid action call'})
-    // return sendMessage('', 'invalid action call')
+    if (callback_id === 'question2' && payload.type === 'view_submission') {
+        
+        res.status(200).send({ "response_action": "clear" })
+        sendMessage(userId, 'Thank you')
+        return 
+        
+    }
+    return 
 
 })
 app.get('*', (req, res) => {

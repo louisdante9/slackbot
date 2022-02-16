@@ -12,33 +12,33 @@
     },
     "api_app_id": "A033X7C9T5E",
     "token": "Wg5A2t0j8GBowj3yfxaU6kpu",
-    "trigger_id": "3113496912211.769805667984.bfb38a2b447e326e1e8898b055e00905",
+    "trigger_id": "3115436759347.769805667984.750e8b5a598e646661766296a142ce69",
     "view": {
-        "id": "V0338H16T6Z",
+        "id": "V033DCDPYBC",
         "team_id": "TNMPPKMUY",
         "type": "modal",
         "blocks": [
             {
                 "type": "section",
-                "block_id": "HD7Bz",
+                "block_id": "C2Hsa",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "Welcome, how are you doing?",
+                    "text": "What are your favorite hobbies",
                     "verbatim": false
                 },
                 "accessory": {
-                    "type": "static_select",
-                    "action_id": "static_select-action",
+                    "type": "multi_static_select",
+                    "action_id": "multi_static_select-action",
                     "placeholder": {
                         "type": "plain_text",
-                        "text": "Select an item",
+                        "text": "Select options",
                         "emoji": true
                     },
                     "options": [
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "Doing Well",
+                                "text": "Football",
                                 "emoji": true
                             },
                             "value": "value-0"
@@ -46,7 +46,7 @@
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "Neutral",
+                                "text": "Music",
                                 "emoji": true
                             },
                             "value": "value-1"
@@ -54,35 +54,53 @@
                         {
                             "text": {
                                 "type": "plain_text",
-                                "text": "Feeling Lucky",
+                                "text": "Sleep",
                                 "emoji": true
                             },
                             "value": "value-2"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Movies",
+                                "emoji": true
+                            },
+                            "value": "value-3"
+                        },
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Basketball",
+                                "emoji": true
+                            },
+                            "value": "value-4"
                         }
                     ]
                 }
             }
         ],
         "private_metadata": "",
-        "callback_id": "question1",
+        "callback_id": "question2",
         "state": {
             "values": {
-                "HD7Bz": {
-                    "static_select-action": {
-                        "type": "static_select",
-                        "selected_option": {
-                            "text": {
-                                "type": "plain_text",
-                                "text": "Neutral",
-                                "emoji": true
-                            },
-                            "value": "value-1"
-                        }
+                "C2Hsa": {
+                    "multi_static_select-action": {
+                        "type": "multi_static_select",
+                        "selected_options": [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "Football",
+                                    "emoji": true
+                                },
+                                "value": "value-0"
+                            }
+                        ]
                     }
                 }
             }
         },
-        "hash": "1645014676.c9qoIPp0",
+        "hash": "1645032517.seIcE69Z",
         "title": {
             "type": "plain_text",
             "text": "slackbot",
@@ -97,7 +115,7 @@
             "emoji": true
         },
         "previous_view_id": null,
-        "root_view_id": "V0338H16T6Z",
+        "root_view_id": "V033DCDPYBC",
         "app_id": "A033X7C9T5E",
         "external_id": "",
         "app_installed_team_id": "TNMPPKMUY",
