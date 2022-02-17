@@ -9,6 +9,7 @@ const { createResponse, udpdateResponse, getAllresponses } = require('./controll
 const {filterKeys} = require('./util')
 
 const app = new Express()
+app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const port = process.env.PORT || 80;
@@ -66,3 +67,5 @@ app.listen(port, err => {
     }
     console.log(`Server started at localhost:${port}`)
 });
+
+module.exports = app

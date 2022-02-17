@@ -4,8 +4,9 @@
   "description": "slackbot api",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
+    "test": "mocha --timeout 10000",
+    "start": "node bot.js",
+    "dev": "SET NODE_ENV=dev && nodemon bot.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,11 @@
   "dependencies": {
     "@slack/web-api": "^6.6.0",
     "body-parser": "^1.19.1",
+    "chai": "^4.3.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "mongoose": "^6.2.1"
+    "mocha": "^9.2.0",
+    "mongoose": "^6.2.1",
+    "supertest": "^6.2.2"
   }
 }
